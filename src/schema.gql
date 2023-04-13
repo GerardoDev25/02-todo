@@ -6,4 +6,5 @@ type Query {
   """hola mundo es lo que retorna"""
   hello: String!
   ramdomNumber: Float!
+  ramdomNumberFromZero: Int!
 }
