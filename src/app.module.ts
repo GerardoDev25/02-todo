@@ -6,6 +6,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 
 import { HellowordModule } from './helloword/hello-world.module';
 import { HelloworldResolver } from './helloword/hello-world.resolver';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { HelloworldResolver } from './helloword/hello-world.resolver';
       plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
     }),
     HellowordModule,
+    TodoModule,
   ],
   controllers: [],
   providers: [HelloworldResolver],
