@@ -6,5 +6,7 @@ type Query {
   """hola mundo es lo que retorna"""
   hello: String!
   ramdomNumber: Float!
-  ramdomNumberFromZero: Int!
+
+  """from zero to argument "To" default 6"""
+  ramdomNumberFromZero(to: Int): Int!
 }
