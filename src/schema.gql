@@ -3,5 +3,7 @@
 # ------------------------------------------------------
 
 type Query {
-  helloWorld: String!
+  """hola mundo es lo que retorna"""
+  hello: String!
+  ramdomNumber: Float!
 }

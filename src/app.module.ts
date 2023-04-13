@@ -5,7 +5,6 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 import { HellowordModule } from './helloword/hello-world.module';
 import { HelloworldResolver } from './helloword/hello-world.resolver';
-import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 
 @Module({
   imports: [
