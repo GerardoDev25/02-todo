@@ -12,4 +12,19 @@ export class TodoService {
   findAll(): Todo[] {
     return this.todos;
   }
+
+  findOne(id: number): Todo {
+    return this.todos[id];
+  }
+
+  createTodo(description: string): Todo {
+    const newTodo: Todo = {
+      description,
+      done: false,
+      id: this.todos.length + 1,
+    };
+
+    this.todos.push(newTodo);
+    return newTodo;
+  }
 }
