@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+
 import { Todo } from './entity/todo.entity';
-import { CreateTodoInput, UpdateTodoInput } from './dto/inputs';
-import { StatusArgs } from './dto/args/status.args';
+import { StatusArgs, CreateTodoInput, UpdateTodoInput } from './dto';
 
 @Injectable()
 export class TodoService {
