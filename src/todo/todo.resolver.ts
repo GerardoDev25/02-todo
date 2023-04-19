@@ -18,6 +18,21 @@ export class TodoResolver {
     return this.todoService.findOne(id);
   }
 
+  @Query(() => Int, { name: 'totalTodos' })
+  totalTodos(): number {
+    return this.todoService.totalTodos;
+  }
+
+  @Query(() => Int, { name: 'completedTodos' })
+  completedTodos(): number {
+    return this.todoService.completedTodos;
+  }
+
+  @Query(() => Int, { name: 'pendingTodos' })
+  pendingTodos(): number {
+    return this.todoService.pendingTodos;
+  }
+
   @Mutation(() => Todo, { name: 'createTodo' })
   createTodo(@Args('createTodoInput') createTodoInput: CreateTodoInput): Todo {
     return this.todoService.create(createTodoInput);

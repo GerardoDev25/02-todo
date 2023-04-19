@@ -58,4 +58,16 @@ export class TodoService {
     this.todos = this.todos.filter((t) => t.id !== id);
     return true;
   }
+
+  get totalTodos(): number {
+    return this.todos.length;
+  }
+
+  get completedTodos(): number {
+    return this.todos.filter((todo) => todo.done).length;
+  }
+
+  get pendingTodos(): number {
+    return this.todos.filter((todo) => !todo.done).length;
+  }
 }
