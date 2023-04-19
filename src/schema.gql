@@ -15,7 +15,7 @@ type Query {
 
   """from zero to argument "To" default 6"""
   ramdomNumberFromZero(to: Int): Int!
-  todos: [Todo!]!
+  todos(statusArgs: Boolean): [Todo!]!
   todo(id: Int): Todo!
 }
 

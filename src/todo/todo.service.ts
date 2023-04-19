@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Todo } from './entity/todo.entity';
 import { CreateTodoInput, UpdateTodoInput } from './dto/inputs';
+import { StatusArgs } from './dto/args/status.args';
 
 @Injectable()
 export class TodoService {
@@ -10,7 +11,11 @@ export class TodoService {
     { id: 3, description: 'Piedra del espacio', done: true },
   ];
 
-  findAll(): Todo[] {
+  findAll({ status }: StatusArgs): Todo[] {
+    if (status !== undefined) {
+      return this.todos.filter((todo) => todo.done === status);
+    }
+
     return this.todos;
   }
 
@@ -48,9 +53,9 @@ export class TodoService {
   }
 
   remove(id: number): Boolean {
-    const todo = this.findOne(id);
+    this.findOne(id);
 
     this.todos = this.todos.filter((t) => t.id !== id);
-    return true
+    return true;
   }
 }
