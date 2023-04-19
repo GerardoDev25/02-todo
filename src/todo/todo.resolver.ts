@@ -2,7 +2,7 @@ import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { Todo } from './entity/todo.entity';
 import { TodoService } from './todo.service';
-import { CreateTodoInput } from './dto/inputs/create-todo.input';
+import { CreateTodoInput, UpdateTodoInput } from './dto/inputs';
 
 @Resolver()
 export class TodoResolver {
@@ -19,9 +19,12 @@ export class TodoResolver {
   }
 
   @Mutation(() => Todo, { name: 'createTodo' })
-  createTodo(@Args('createTodoInput') createTodoInput: CreateTodoInput) {
-    return this.todoService.createTodo(createTodoInput);
+  createTodo(@Args('createTodoInput') createTodoInput: CreateTodoInput): Todo {
+    return this.todoService.create(createTodoInput);
   }
 
-  updateTodo() {}
+  @Mutation(() => Todo, { name: 'updateTodo' })
+  updateTodo(@Args('updateTodoInput') updateTodoInput: UpdateTodoInput): Todo {
+    return this.todoService.update(updateTodoInput);
+  }
 }
